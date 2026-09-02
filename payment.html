@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Zomato - Payment</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            zomato: "#E23744"
+          }
+        }
+      }
+    }
+
+  </script>
+
+</head>
+
+
+<body class="bg-gray-50 text-gray-800">
+
+
+<!-- NAVBAR -->
+
+<nav class="bg-white shadow-sm">
+
+  <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
+
+    <a
+      href="index.html"
+      class="text-3xl font-bold italic text-zomato">
+      zomato
+    </a>
+
+    <div class="flex gap-6">
+
+      <a
+        href="index.html"
+        class="text-gray-600">
+        Home
+      </a>
+
+      <a
+        href="order.html"
+        class="text-zomato font-semibold">
+        Order
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+<!-- CONTENT -->
+
+<main class="max-w-6xl mx-auto px-5 py-10">
+
+
+  <a
+    href="order.html"
+    class="text-zomato font-medium">
+    ← Back to Order
+  </a>
+
+
+  <h1 class="text-3xl font-bold mt-6">
+    Checkout
+  </h1>
+
+
+  <div class="grid lg:grid-cols-3 gap-8 mt-8">
+
+
+    <!-- LEFT -->
+
+    <div class="lg:col-span-2">
+
+
+      <!-- ADDRESS -->
+
+      <div class="bg-white rounded-2xl p-6 shadow-sm">
+
+        <h2 class="text-xl font-bold">
+          Delivery Address
+        </h2>
+
+
+        <div class="grid sm:grid-cols-2 gap-4 mt-5">
+
+          <input
+            type="text"
+            placeholder="Full Name"
+            class="border rounded-lg px-4 py-3 outline-none focus:border-zomato">
+
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            class="border rounded-lg px-4 py-3 outline-none focus:border-zomato">
+
+          <input
+            type="text"
+            placeholder="House / Flat / Street"
+            class="sm:col-span-2 border rounded-lg px-4 py-3 outline-none focus:border-zomato">
+
+          <input
+            type="text"
+            placeholder="City"
+            class="border rounded-lg px-4 py-3 outline-none focus:border-zomato">
+
+          <input
+            type="text"
+            placeholder="Pincode"
+            class="border rounded-lg px-4 py-3 outline-none focus:border-zomato">
+
+        </div>
+
+      </div>
+
+
+      <!-- PAYMENT -->
+
+      <div class="bg-white rounded-2xl p-6 shadow-sm mt-6">
+
+        <h2 class="text-xl font-bold">
+          Payment Method
+        </h2>
+
+
+        <!-- UPI -->
+
+        <label class="flex items-center gap-4 border rounded-xl p-4 mt-5 cursor-pointer hover:border-zomato">
+
+          <input
+            type="radio"
+            name="payment"
+            value="upi"
+            checked>
+
+          <div>
+
+            <p class="font-semibold">
+              UPI
+            </p>
+
+            <p class="text-sm text-gray-500">
+              Google Pay, PhonePe, Paytm
+            </p>
+
+          </div>
+
+          <span class="ml-auto text-2xl">
+            📱
+          </span>
+
+        </label>
+
+
+        <!-- CARD -->
+
+        <label class="flex items-center gap-4 border rounded-xl p-4 mt-3 cursor-pointer hover:border-zomato">
+
+          <input
+            type="radio"
+            name="payment"
+            value="card">
+
+          <div>
+
+            <p class="font-semibold">
+              Credit / Debit Card
+            </p>
+
+            <p class="text-sm text-gray-500">
+              Visa, Mastercard, RuPay
+            </p>
+
+          </div>
+
+          <span class="ml-auto text-2xl">
+            💳
+          </span>
+
+        </label>
+
+
+        <!-- COD -->
+
+        <label class="flex items-center gap-4 border rounded-xl p-4 mt-3 cursor-pointer hover:border-zomato">
+
+          <input
+            type="radio"
+            name="payment"
+            value="cod">
+
+          <div>
+
+            <p class="font-semibold">
+              Cash on Delivery
+            </p>
+
+            <p class="text-sm text-gray-500">
+              Pay when your order arrives
+            </p>
+
+          </div>
+
+          <span class="ml-auto text-2xl">
+            💵
+          </span>
+
+        </label>
+
+
+        <!-- CARD DETAILS -->
+
+        <div id="cardDetails"
+             class="hidden mt-5 space-y-4">
+
+          <input
+            type="text"
+            placeholder="Card Number"
+            class="w-full border rounded-lg px-4 py-3">
+
+          <div class="grid grid-cols-2 gap-4">
+
+            <input
+              type="text"
+              placeholder="MM / YY"
+              class="border rounded-lg px-4 py-3">
+
+            <input
+              type="text"
+              placeholder="CVV"
+              class="border rounded-lg px-4 py-3">
+
+          </div>
+
+        </div>
+
+
+        <button
+          onclick="placeOrder()"
+          class="w-full bg-zomato text-white py-4 rounded-xl mt-7 font-bold hover:bg-red-700">
+          Pay & Place Order
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <aside class="bg-white rounded-2xl p-6 shadow-sm h-fit">
+
+      <h2 class="text-xl font-bold">
+        Order Summary
+      </h2>
+
+
+      <div id="summary"
+           class="mt-5">
+      </div>
+
+
+      <div class="border-t mt-5 pt-5 space-y-3">
+
+        <div class="flex justify-between">
+          <span>Item Total</span>
+          <span id="itemTotal">
+            ₹0
+          </span>
+        </div>
+
+        <div class="flex justify-between">
+          <span>Delivery Fee</span>
+          <span>₹30</span>
+        </div>
+
+        <div class="flex justify-between">
+          <span>Platform Fee</span>
+          <span>₹5</span>
+        </div>
+
+        <div class="flex justify-between">
+          <span>GST</span>
+          <span>₹20</span>
+        </div>
+
+      </div>
+
+
+      <div class="border-t mt-5 pt-5 flex justify-between text-lg font-bold">
+
+        <span>
+          Grand Total
+        </span>
+
+        <span id="grandTotal">
+          ₹55
+        </span>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</main>
+
+
+<!-- SUCCESS MODAL -->
+
+<div
+  id="success"
+  class="hidden fixed inset-0 bg-black/60 items-center justify-center px-5">
+
+  <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center">
+
+    <div class="w-20 h-20 mx-auto bg-green-100 rounded-full flex items-center justify-center text-5xl text-green-600">
+      ✓
+    </div>
+
+    <h2 class="text-2xl font-bold mt-5">
+      Order Placed Successfully!
+    </h2>
+
+    <p class="text-gray-500 mt-3">
+      Your food is on the way 🚴
+    </p>
+
+    <div class="bg-gray-50 rounded-xl p-4 mt-5">
+
+      <p class="text-sm text-gray-500">
+        Order ID
+      </p>
+
+      <p class="font-bold mt-1">
+        #ZOM2026-45821
+      </p>
+
+    </div>
+
+    <a
+      href="index.html"
+      onclick="clearCart()"
+      class="block bg-zomato text-white rounded-xl py-3 mt-6 font-bold">
+      Back to Home
+    </a>
+
+  </div>
+
+</div>
+
+
+<script>
+
+
+// Get cart from localStorage
+
+let cart =
+  JSON.parse(
+    localStorage.getItem("cart")
+  ) || [];
+
+
+// Display summary
+
+function renderSummary() {
+
+  const summary =
+    document.getElementById("summary");
+
+  if (cart.length === 0) {
+
+    summary.innerHTML = `
+      <div class="text-center py-8 text-gray-400">
+        Your cart is empty.
+        <br><br>
+
+        <a
+          href="order.html"
+          class="text-zomato font-semibold">
+          Go to Order Page
+        </a>
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+
+  summary.innerHTML =
+    cart.map(item => {
+
+      let price =
+        item.price * item.qty;
+
+      total += price;
+
+
+      return `
+
+        <div class="flex justify-between py-2">
+
+          <div>
+
+            <p class="font-medium">
+              ${item.name}
+            </p>
+
+            <p class="text-sm text-gray-500">
+              Qty: ${item.qty}
+            </p>
+
+          </div>
+
+          <p>
+            ₹${price}
+          </p>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+
+  document.getElementById(
+    "itemTotal"
+  ).innerText = "₹" + total;
+
+
+  document.getElementById(
+    "grandTotal"
+  ).innerText =
+    "₹" + (total + 30 + 5 + 20);
+
+}
+
+
+renderSummary();
+
+
+// Card payment
+
+document
+  .querySelectorAll(
+    'input[name="payment"]'
+  )
+  .forEach(input => {
+
+    input.addEventListener(
+      "change",
+      function() {
+
+        const card =
+          document.getElementById(
+            "cardDetails"
+          );
+
+        if (this.value === "card") {
+
+          card.classList.remove("hidden");
+
+        } else {
+
+          card.classList.add("hidden");
+
+        }
+
+      }
+    );
+
+  });
+
+
+// Place Order
+
+function placeOrder() {
+
+  if (cart.length === 0) {
+
+    alert(
+      "Your cart is empty. Please add some food first."
+    );
+
+    return;
+
+  }
+
+
+  const modal =
+    document.getElementById("success");
+
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+
+}
+
+
+// Clear cart
+
+function clearCart() {
+
+  localStorage.removeItem("cart");
+
+}
+
+</script>
+
+
+</body>
+</html>
