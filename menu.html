@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Zomato - Menu</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            zomato: "#E23744"
+          }
+        }
+      }
+    }
+  </script>
+
+</head>
+
+
+<body class="bg-gray-50 text-gray-800">
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="sticky top-0 z-50 bg-white shadow-sm">
+
+  <div
+    class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+
+    <!-- Logo -->
+
+    <a
+      href="index.html"
+      class="text-3xl font-bold italic text-zomato">
+
+      zomato
+
+    </a>
+
+
+    <!-- Desktop Navigation -->
+
+    <div class="hidden md:flex items-center gap-8">
+
+      <a
+        href="index.html"
+        class="text-gray-600 hover:text-zomato">
+
+        Home
+
+      </a>
+
+      <a
+        href="menu.html"
+        class="font-semibold text-zomato">
+
+        Menu
+
+      </a>
+
+      <a
+        href="order.html"
+        class="text-gray-600 hover:text-zomato">
+
+        Cart 🛒
+
+      </a>
+
+    </div>
+
+
+    <!-- Cart -->
+
+    <a
+      href="order.html"
+      class="rounded-lg bg-zomato px-5 py-2 text-white font-semibold">
+
+      Cart 🛒
+
+      <span
+        id="cartCount"
+        class="ml-1">
+
+        0
+
+      </span>
+
+    </a>
+
+  </div>
+
+</nav>
+
+
+
+<!-- ================= RESTAURANT HEADER ================= -->
+
+<section class="bg-white border-b">
+
+  <div class="max-w-7xl mx-auto px-5 py-8">
+
+    <div
+      class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+
+      <div>
+
+        <div class="flex items-center gap-3">
+
+          <h1 class="text-3xl font-bold">
+
+            Pizza Paradise 🍕
+
+          </h1>
+
+          <span
+            class="bg-green-600 text-white text-sm px-3 py-1 rounded-lg">
+
+            4.5 ★
+
+          </span>
+
+        </div>
+
+        <p class="text-gray-500 mt-2">
+
+          Pizza, Italian, Fast Food
+
+        </p>
+
+        <p class="text-gray-500 mt-1">
+
+          📍 Andheri West, Mumbai
+
+        </p>
+
+      </div>
+
+
+      <div class="flex gap-3">
+
+        <span
+          class="bg-gray-100 px-4 py-2 rounded-lg">
+
+          🕐 25 min
+
+        </span>
+
+        <span
+          class="bg-gray-100 px-4 py-2 rounded-lg">
+
+          ₹250 for one
+
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================= MENU NAVIGATION ================= -->
+
+<div class="sticky top-[73px] z-40 bg-white border-b">
+
+  <div
+    class="max-w-7xl mx-auto px-5">
+
+    <div class="flex gap-8 overflow-x-auto py-4">
+
+      <a
+        href="#pizza"
+        class="whitespace-nowrap font-semibold text-zomato">
+
+        Pizza
+
+      </a>
+
+      <a
+        href="#sides"
+        class="whitespace-nowrap text-gray-600">
+
+        Sides
+
+      </a>
+
+      <a
+        href="#drinks"
+        class="whitespace-nowrap text-gray-600">
+
+        Drinks
+
+      </a>
+
+      <a
+        href="#desserts"
+        class="whitespace-nowrap text-gray-600">
+
+        Desserts
+
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="max-w-7xl mx-auto px-5 py-10">
+
+  <div class="grid lg:grid-cols-3 gap-8">
+
+
+    <!-- ================= MENU ================= -->
+
+    <div class="lg:col-span-2">
+
+
+      <!-- Pizza -->
+
+      <section id="pizza">
+
+        <h2 class="text-2xl font-bold mb-5">
+
+          Pizza
+
+        </h2>
+
+
+        <!-- Pizza 1 -->
+
+        <div
+          class="bg-white rounded-2xl p-5 mb-5 shadow-sm flex justify-between gap-5">
+
+          <div class="flex-1">
+
+            <span class="text-green-600">
+              ●
+            </span>
+
+            <h3 class="text-xl font-bold mt-2">
+
+              Margherita Pizza
+
+            </h3>
+
+            <p class="font-semibold mt-2">
+
+              ₹299
+
+            </p>
+
+            <p class="text-gray-500 text-sm mt-2">
+
+              Fresh mozzarella, tomato sauce
+              and fresh basil.
+
+            </p>
+
+          </div>
+
+
+          <div class="flex flex-col items-center">
+
+            <div
+              class="w-32 h-28 bg-orange-100 rounded-xl flex items-center justify-center text-6xl">
+
+              🍕
+
+            </div>
+
+            <button
+              onclick="addToCart('Margherita Pizza',299)"
+              class="mt-3 border-2 border-zomato text-zomato px-7 py-2 rounded-lg font-bold hover:bg-zomato hover:text-white">
+
+              ADD
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Pizza 2 -->
+
+        <div
+          class="bg-white rounded-2xl p-5 mb-5 shadow-sm flex justify-between gap-5">
+
+          <div class="flex-1">
+
+            <span class="text-green-600">
+              ●
+            </span>
+
+            <h3 class="text-xl font-bold mt-2">
+
+              Farmhouse Pizza
+
+            </h3>
+
+            <p class="font-semibold mt-2">
+
+              ₹399
+
+            </p>
+
+            <p class="text-gray-500 text-sm mt-2">
+
+              Onion, capsicum, tomato,
+              mushroom and cheese.
+
+            </p>
+
+          </div>
+
+
+          <div class="flex flex-col items-center">
+
+            <div
+              class="w-32 h-28 bg-green-100 rounded-xl flex items-center justify-center text-6xl">
+
+              🍕
+
+            </div>
+
+            <button
+              onclick="addToCart('Farmhouse Pizza',399)"
+              class="mt-3 border-2 border-zomato text-zomato px-7 py-2 rounded-lg font-bold hover:bg-zomato hover:text-white">
+
+              ADD
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Pizza 3 -->
+
+        <div
+          class="bg-white rounded-2xl p-5 mb-5 shadow-sm flex justify-between gap-5">
+
+          <div class="flex-1">
+
+            <span class="text-green-600">
+              ●
+            </span>
+
+            <h3 class="text-xl font-bold mt-2">
+
+              Cheese Burst Pizza
+
+            </h3>
+
+            <p class="font-semibold mt-2">
+
+              ₹449
+
+            </p>
+
+            <p class="text-gray-500 text-sm mt-2">
+
+              Extra cheese with creamy
+              cheese-filled crust.
+
+            </p>
+
+          </div>
+
+
+          <div class="flex flex-col items-center">
+
+            <div
+              class="w-32 h-28 bg-yellow-100 rounded-xl flex items-center justify-center text-6xl">
+
+              🧀
+
+            </div>
+
+            <button
+              onclick="addToCart('Cheese Burst Pizza',449)"
+              class="mt-3 border-2 border-zomato text-zomato px-7 py-2 rounded-lg font-bold hover:bg-zomato hover:text-white">
+
+              ADD
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ================= SIDES ================= -->
+
+      <section id="sides" class="mt-12">
+
+        <h2 class="text-2xl font-bold mb-5">
+
+          Sides
+
+        </h2>
+
+
+        <!-- Garlic Bread -->
+
+        <div
+          class="bg-white rounded-2xl p-5 mb-5 shadow-sm flex justify-between gap-5">
+
+          <div class="flex-1">
+
+            <span class="text-green-600">
+              ●
+            </span>
+
+            <h3 class="text-xl font-bold mt-2">
+
+              Garlic Bread
+
+            </h3>
+
+            <p class="font-semibold mt-2">
+
+              ₹149
+
+            </p>
+
+            <p class="text-gray-500 text-sm mt-2">
+
+              Soft garlic bread served with
+              cheese dip.
+
+            </p>
+
+          </div>
+
+
+          <div class="flex flex-col items-center">
+
+            <div
+              class="w-32 h-28 bg-yellow-50 rounded-xl flex items-center justify-center text-6xl">
+
+              🥖
+
+            </div>
+
+            <button
+              onclick="addToCart('Garlic Bread',149)"
+              class="mt-3 border-2 border-zomato text-zomato px-7 py-2 rounded-lg font-bold hover:bg-zomato hover:text-white">
+
+              ADD
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- French Fries -->
+
+        <div
+          class="bg-white rounded-2xl p-5 mb-5 shadow-sm flex justify-between gap-5">
+
+          <div class="flex-1">
+
+            <span class="text-green-600">
+              ●
+            </span>
+
+            <h3 class="text-xl font-bold mt-2">
+
+              French Fries
+
+            </h3>
+
+            <p class="font-semibold mt-2">
+
+              ₹129
+
+            </p>
+
+            <p class="text-gray-500 text-sm mt-2">
+
+              Crispy golden french fries.
+
+            </p>
+
+          </div>
+
+
+          <div class="flex flex-col items-center">
+
+            <div
+              class="w-32 h-28 bg-orange-100 rounded-xl flex items-center justify-center text-6xl">
+
+              🍟
+
+            </div>
+
+            <button
+              onclick="addToCart('French Fries',129)"
+              class="mt-3 border-2 border-zomato text-zomato px-7 py-2 rounded-lg font-bold hover:bg-zomato hover:text-white">
+
+              ADD
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ================= DRINKS ================= -->
+
+      <section id="drinks" class="mt-12">
+
+        <h2 class="text-2xl font-bold mb-5">
+
+          Drinks
+
+        </h2>
+
+
+        <!-- Coke -->
+
+        <div
+          class="bg-white rounded-2xl p-5 mb-5 shadow-sm flex justify-between gap-5">
+
+          <div class="flex-1">
+
+            <span class="text-green-600">
+              ●
+            </span>
+
+            <h3 class="text-xl font-bold mt-2">
+
+              Coca Cola
+
+            </h3>
+
+            <p class="font-semibold mt-2">
+
+              ₹69
+
+            </p>
+
+            <p class="text-gray-500 text-sm mt-2">
+
+              Chilled soft drink.
+
+            </p>
+
+          </div>
+
+
+          <div class="flex flex-col items-center">
+
+            <div
+              class="w-32 h-28 bg-red-100 rounded-xl flex items-center justify-center text-6xl">
+
+              🥤
+
+            </div>
+
+            <button
+              onclick="addToCart('Coca Cola',69)"
+              class="mt-3 border-2 border-zomato text-zomato px-7 py-2 rounded-lg font-bold hover:bg-zomato hover:text-white">
+
+              ADD
+
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Cold Coffee -->
+
+        <div
+          class="bg-white rounded-2xl p-5 mb-5 shadow-sm flex justify-between gap-5">
+
+          <div class="flex-1">
+
+            <span class="text-green-600">
+              ●
+            </span>
+
+            <h3 class="text-xl font-bold mt-2">
+
+              Cold Coffee
+
+            </h3>
+
+            <p class="font-semibold mt-2">
+
+              ₹149
+
+            </p>
+
+            <p class="text-gray-500 text-sm mt-2">
+
+              Creamy chilled cold coffee.
+
+            </p>
+
+          </div>
+
+
+          <div class="flex flex-col items-center">
+
+            <div
+              class="w-32 h-28 bg-yellow-50 rounded-xl flex items-center justify-center text-6xl">
+
+              ☕
+
+            </div>
+
+            <button
+              onclick="addToCart('Cold Coffee',149)"
+              class="mt-3 border-2 border-zomato text-zomato px-7 py-2 rounded-lg font-bold hover:bg-zomato hover:text-white">
+
+              ADD
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- ================= DESSERT ================= -->
+
+      <section id="desserts" class="mt-12">
+
+        <h2 class="text-2xl font-bold mb-5">
+
+          Desserts
+
+        </h2>
+
+
+        <!-- Brownie -->
+
+        <div
+          class="bg-white rounded-2xl p-5 mb-5 shadow-sm flex justify-between gap-5">
+
+          <div class="flex-1">
+
+            <span class="text-green-600">
+              ●
+            </span>
+
+            <h3 class="text-xl font-bold mt-2">
+
+              Chocolate Brownie
+
+            </h3>
+
+            <p class="font-semibold mt-2">
+
+              ₹179
+
+            </p>
+
+            <p class="text-gray-500 text-sm mt-2">
+
+              Warm chocolate brownie.
+
+            </p>
+
+          </div>
+
+
+          <div class="flex flex-col items-center">
+
+            <div
+              class="w-32 h-28 bg-brown-100 rounded-xl flex items-center justify-center text-6xl">
+
+              🍫
+
+            </div>
+
+            <button
+              onclick="addToCart('Chocolate Brownie',179)"
+              class="mt-3 border-2 border-zomato text-zomato px-7 py-2 rounded-lg font-bold hover:bg-zomato hover:text-white">
+
+              ADD
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+
+    <!-- ================= CART ================= -->
+
+    <aside
+      class="bg-white rounded-2xl p-6 shadow-sm h-fit lg:sticky lg:top-28">
+
+      <h2 class="text-xl font-bold">
+
+        Your Cart 🛒
+
+      </h2>
+
+      <div
+        id="cart"
+        class="mt-5">
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</main>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+let cart =
+  JSON.parse(
+    localStorage.getItem("cart")
+  ) || [];
+
+
+
+function saveCart() {
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+}
+
+
+
+function addToCart(name, price) {
+
+  const existing =
+    cart.find(
+      item => item.name === name
+    );
+
+
+  if (existing) {
+
+    existing.qty++;
+
+  } else {
+
+    cart.push({
+
+      name: name,
+
+      price: price,
+
+      qty: 1
+
+    });
+
+  }
+
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+
+function increase(index) {
+
+  cart[index].qty++;
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+
+function decrease(index) {
+
+  if (cart[index].qty > 1) {
+
+    cart[index].qty--;
+
+  } else {
+
+    cart.splice(index, 1);
+
+  }
+
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+
+function removeItem(index) {
+
+  cart.splice(index, 1);
+
+  saveCart();
+
+  renderCart();
+
+}
+
+
+
+function renderCart() {
+
+  const cartBox =
+    document.getElementById("cart");
+
+
+  const cartCount =
+    cart.reduce(
+      (total, item) =>
+        total + item.qty,
+      0
+    );
+
+
+  document.getElementById(
+    "cartCount"
+  ).innerText = cartCount;
+
+
+
+  if (cart.length === 0) {
+
+    cartBox.innerHTML = `
+
+      <div class="text-center py-10">
+
+        <div class="text-5xl">
+          🛒
+        </div>
+
+        <p class="text-gray-400 mt-3">
+          Your cart is empty
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+
+  let total = 0;
+
+
+
+  cartBox.innerHTML = cart.map(
+    (item,index) => {
+
+      const itemTotal =
+        item.price * item.qty;
+
+      total += itemTotal;
+
+
+      return `
+
+        <div class="border-b py-4">
+
+          <div class="flex justify-between gap-3">
+
+            <div>
+
+              <h3 class="font-semibold">
+                ${item.name}
+              </h3>
+
+              <p class="text-sm text-gray-500">
+                ₹${item.price}
+              </p>
+
+            </div>
+
+            <button
+              onclick="removeItem(${index})"
+              class="text-red-500 text-sm">
+
+              Remove
+
+            </button>
+
+          </div>
+
+
+          <div class="flex justify-between items-center mt-3">
+
+            <div class="flex border rounded-lg">
+
+              <button
+                onclick="decrease(${index})"
+                class="px-3 py-1">
+
+                −
+
+              </button>
+
+              <span class="px-3 py-1">
+                ${item.qty}
+              </span>
+
+              <button
+                onclick="increase(${index})"
+                class="px-3 py-1">
+
+                +
+
+              </button>
+
+            </div>
+
+
+            <strong>
+              ₹${itemTotal}
+            </strong>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+  ).join("");
+
+
+
+  cartBox.innerHTML += `
+
+    <div class="pt-5">
+
+      <div class="flex justify-between text-lg font-bold">
+
+        <span>
+          Total
+        </span>
+
+        <span>
+          ₹${total}
+        </span>
+
+      </div>
+
+
+      <a
+        href="order.html"
+        class="block text-center bg-zomato text-white rounded-xl py-3 mt-5 font-bold">
+
+        View Cart
+
+      </a>
+
+    </div>
+
+  `;
+
+}
+
+
+
+renderCart();
+
+</script>
+
+
+</body>
+</html>
