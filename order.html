@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Zomato - Order</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            zomato: "#E23744"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+
+<body class="bg-gray-50 text-gray-800">
+
+
+<!-- NAVBAR -->
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+
+  <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
+
+    <a href="index.html"
+       class="text-3xl font-bold italic text-zomato">
+      zomato
+    </a>
+
+    <div class="flex items-center gap-5">
+
+      <a href="index.html"
+         class="text-gray-600">
+        Home
+      </a>
+
+      <a href="order.html"
+         class="bg-zomato text-white px-5 py-2 rounded-lg">
+        Cart 🛒
+        <span id="cartCount">0</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+<!-- MAIN -->
+<main class="max-w-7xl mx-auto px-5 py-10">
+
+
+  <a href="index.html"
+     class="text-zomato font-medium">
+    ← Back to Home
+  </a>
+
+
+  <!-- RESTAURANT -->
+  <div class="bg-white rounded-2xl p-6 shadow-sm mt-6">
+
+    <div class="flex flex-col md:flex-row justify-between gap-5">
+
+      <div>
+
+        <h1 class="text-3xl font-bold">
+          Pizza Paradise 🍕
+        </h1>
+
+        <p class="text-gray-500 mt-2">
+          Pizza, Italian, Fast Food
+        </p>
+
+        <p class="text-gray-500 mt-2">
+          📍 Andheri West, Mumbai
+        </p>
+
+      </div>
+
+      <div class="flex gap-3">
+
+        <span class="bg-green-600 text-white px-3 py-2 rounded-lg">
+          4.5 ★
+        </span>
+
+        <span class="bg-gray-100 px-3 py-2 rounded-lg">
+          25 min
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="grid lg:grid-cols-3 gap-8 mt-8">
+
+
+    <!-- MENU -->
+    <div class="lg:col-span-2">
+
+      <h2 class="text-2xl font-bold mb-5">
+        Recommended
+      </h2>
+
+
+      <!-- ITEM 1 -->
+      <div class="bg-white rounded-xl p-5 shadow-sm mb-5 flex justify-between gap-5">
+
+        <div>
+
+          <span class="text-green-600">
+            ●
+          </span>
+
+          <h3 class="text-xl font-bold mt-2">
+            Margherita Pizza
+          </h3>
+
+          <p class="font-semibold mt-2">
+            ₹299
+          </p>
+
+          <p class="text-gray-500 text-sm mt-2">
+            Fresh mozzarella, tomato sauce and basil.
+          </p>
+
+        </div>
+
+        <div class="flex flex-col items-center">
+
+          <div class="w-28 h-24 rounded-xl bg-orange-100 flex items-center justify-center text-5xl">
+            🍕
+          </div>
+
+          <button
+            onclick="addItem('Margherita Pizza',299)"
+            class="mt-3 border-2 border-zomato text-zomato font-bold px-6 py-2 rounded-lg hover:bg-zomato hover:text-white">
+            ADD
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ITEM 2 -->
+      <div class="bg-white rounded-xl p-5 shadow-sm mb-5 flex justify-between gap-5">
+
+        <div>
+
+          <span class="text-green-600">
+            ●
+          </span>
+
+          <h3 class="text-xl font-bold mt-2">
+            Farmhouse Pizza
+          </h3>
+
+          <p class="font-semibold mt-2">
+            ₹399
+          </p>
+
+          <p class="text-gray-500 text-sm mt-2">
+            Onion, capsicum, tomato and cheese.
+          </p>
+
+        </div>
+
+        <div class="flex flex-col items-center">
+
+          <div class="w-28 h-24 rounded-xl bg-green-100 flex items-center justify-center text-5xl">
+            🍕
+          </div>
+
+          <button
+            onclick="addItem('Farmhouse Pizza',399)"
+            class="mt-3 border-2 border-zomato text-zomato font-bold px-6 py-2 rounded-lg hover:bg-zomato hover:text-white">
+            ADD
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ITEM 3 -->
+      <div class="bg-white rounded-xl p-5 shadow-sm mb-5 flex justify-between gap-5">
+
+        <div>
+
+          <span class="text-green-600">
+            ●
+          </span>
+
+          <h3 class="text-xl font-bold mt-2">
+            Cheese Burst Pizza
+          </h3>
+
+          <p class="font-semibold mt-2">
+            ₹449
+          </p>
+
+          <p class="text-gray-500 text-sm mt-2">
+            Extra cheese with creamy filling.
+          </p>
+
+        </div>
+
+        <div class="flex flex-col items-center">
+
+          <div class="w-28 h-24 rounded-xl bg-yellow-100 flex items-center justify-center text-5xl">
+            🧀
+          </div>
+
+          <button
+            onclick="addItem('Cheese Burst Pizza',449)"
+            class="mt-3 border-2 border-zomato text-zomato font-bold px-6 py-2 rounded-lg hover:bg-zomato hover:text-white">
+            ADD
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ITEM 4 -->
+      <div class="bg-white rounded-xl p-5 shadow-sm mb-5 flex justify-between gap-5">
+
+        <div>
+
+          <span class="text-green-600">
+            ●
+          </span>
+
+          <h3 class="text-xl font-bold mt-2">
+            Garlic Bread
+          </h3>
+
+          <p class="font-semibold mt-2">
+            ₹149
+          </p>
+
+          <p class="text-gray-500 text-sm mt-2">
+            Soft garlic bread with cheese dip.
+          </p>
+
+        </div>
+
+        <div class="flex flex-col items-center">
+
+          <div class="w-28 h-24 rounded-xl bg-yellow-50 flex items-center justify-center text-5xl">
+            🥖
+          </div>
+
+          <button
+            onclick="addItem('Garlic Bread',149)"
+            class="mt-3 border-2 border-zomato text-zomato font-bold px-6 py-2 rounded-lg hover:bg-zomato hover:text-white">
+            ADD
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CART -->
+    <aside class="bg-white rounded-2xl p-6 shadow-sm h-fit lg:sticky lg:top-24">
+
+      <h2 class="text-xl font-bold">
+        Your Cart
+      </h2>
+
+      <div id="cart" class="mt-5"></div>
+
+    </aside>
+
+  </div>
+
+</main>
+
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+
+function saveCart() {
+
+  localStorage.setItem(
+    "cart",
+    JSON.stringify(cart)
+  );
+
+}
+
+
+function addItem(name, price) {
+
+  let item = cart.find(
+    x => x.name === name
+  );
+
+  if (item) {
+
+    item.qty++;
+
+  } else {
+
+    cart.push({
+      name: name,
+      price: price,
+      qty: 1
+    });
+
+  }
+
+  saveCart();
+  renderCart();
+
+}
+
+
+function increase(index) {
+
+  cart[index].qty++;
+
+  saveCart();
+  renderCart();
+
+}
+
+
+function decrease(index) {
+
+  if (cart[index].qty > 1) {
+
+    cart[index].qty--;
+
+  } else {
+
+    cart.splice(index,1);
+
+  }
+
+  saveCart();
+  renderCart();
+
+}
+
+
+function renderCart() {
+
+  let cartBox =
+    document.getElementById("cart");
+
+  let count =
+    cart.reduce(
+      (sum,item) => sum + item.qty,
+      0
+    );
+
+  document.getElementById("cartCount")
+    .innerText = count;
+
+
+  if (cart.length === 0) {
+
+    cartBox.innerHTML = `
+      <div class="text-center py-10 text-gray-400">
+        <div class="text-5xl">🛒</div>
+        <p class="mt-3">
+          Your cart is empty
+        </p>
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  let total = 0;
+
+
+  cartBox.innerHTML = cart.map(
+    (item,index) => {
+
+      let itemTotal =
+        item.price * item.qty;
+
+      total += itemTotal;
+
+
+      return `
+
+        <div class="border-b py-4">
+
+          <div class="flex justify-between">
+
+            <div>
+              <h3 class="font-semibold">
+                ${item.name}
+              </h3>
+
+              <p class="text-sm text-gray-500">
+                ₹${item.price}
+              </p>
+            </div>
+
+            <strong>
+              ₹${itemTotal}
+            </strong>
+
+          </div>
+
+
+          <div class="flex justify-between items-center mt-3">
+
+            <div class="flex border rounded-lg">
+
+              <button
+                onclick="decrease(${index})"
+                class="px-3 py-1">
+                −
+              </button>
+
+              <span class="px-3 py-1">
+                ${item.qty}
+              </span>
+
+              <button
+                onclick="increase(${index})"
+                class="px-3 py-1">
+                +
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+  ).join("");
+
+
+  cartBox.innerHTML += `
+
+    <div class="mt-5">
+
+      <div class="flex justify-between font-bold text-lg">
+        <span>Total</span>
+        <span>₹${total}</span>
+      </div>
+
+      <a
+        href="payment.html"
+        class="block text-center mt-5 bg-zomato text-white py-3 rounded-xl font-bold">
+        Proceed to Payment
+      </a>
+
+    </div>
+
+  `;
+
+}
+
+
+renderCart();
+
+</script>
+
+</body>
+</html>
